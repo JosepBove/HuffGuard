@@ -1,0 +1,24 @@
+/* Storage Slots */
+#define constant VALUE_LOCATION = FREE_STORAGE_POINTER()
+
+
+#define function protectedFNC() public
+
+/* Methods */
+#define macro PROTECTED_FUNCTION() = takes (0) returns (0) {
+    HUFF_GUARD()
+}
+
+#define macro HUFF_GUARD() = takes (0) returns (0) {
+    // HUFF MODIFIER HERE
+}
+
+#define macro MAIN() = takes (0) returns (0) {
+    0x00 calldataload 0xE0 shr
+    dup1 0x55241077 eq set jumpi
+    dup1 0x20965255 eq get jumpi
+
+    protectedFNC:
+        PROTECTED_FUNCTION()
+
+}
